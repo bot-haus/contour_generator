@@ -17,7 +17,7 @@ const path = [1, 0, 3, 1, 2, 3];
 
 
 function setup() {
-  createCanvas(500, 400, SVG);
+  createCanvas(windowWidth, windowHeight, SVG);
   background(255);
   randomSeed();
 
