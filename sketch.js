@@ -128,6 +128,8 @@ contour(n) {
 
   return lines
     endShape(close);
+    
+    //think you'd need to have an array of l1s and another of l2s and have it combine (maybe with d3.pairs) lines with matching l1 and l2 values until it runs out of matches in order to get long SVG lines
 }
 
 }
