@@ -12,21 +12,13 @@ const path = [1, 0, 3, 1, 2, 3];
 
 
 function setup() {
-  createCanvas(500, 300, SVG);
+  createCanvas(displayWidth, displayHeight, SVG);
   background(255);
   randomSeed();
 
   offx = width / W;
   offy = height / H;
   translate(offx * 0.5, offy * 0.5);
-
-  // compute noise value for each vertex
-  const nvalues = d3.range(N).map(i => noise((i % W) * F, int(i / W) * F))
-
-  // compute + draw contour lines
-  c = new Contour(nvalues, 28, 0.5, 0.01); // 28 contours, starting noise = .5, offset = .01
-  c.display();
-
 }
 
 
@@ -137,6 +129,14 @@ contour(n) {
 }
 
 function draw() {
+
+    // compute noise value for each vertex
+    const nvalues = d3.range(N).map(i => noise((i % W) * F, int(i / W) * F))
+
+    // compute + draw contour lines
+    c = new Contour(nvalues, 28, 0.5, 0.01); // 28 contours, starting noise = .5, offset = .01
+    c.display();
+
   if (keyCode === LEFT_ARROW) {
     save("topogen.svg");
     print("saved svg");
