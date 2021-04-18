@@ -23,7 +23,7 @@ function setup() {
 
   //setting up slider ranges and presets
   contourSlider = createSlider(0, 100, 28, 1);
-  noiseSlider = createSlider(0, 0.5, 0.014, 0.001);
+  noiseSlider = createSlider(0, 1, 0.014, 0.001);
   offsetSlider = createSlider(0, 0.5, 0.01, 0.01);
 
   offx = width / W;
