@@ -49,7 +49,7 @@ class Contour {
       //stroke(43+i*16, 69+i*6, 255-i*4);
 
       lines.forEach(function([p1, p2], j) {
-          beginShape();
+          //beginShape();
           if (i % 5 === 3) {
             if (j % 2 === 0) {
               line(p1.x, p1.y, p2.x, p2.y)
@@ -57,7 +57,7 @@ class Contour {
           } else {
             line(p1.x, p1.y, p2.x, p2.y)
           }
-          endShape(CLOSE);
+          //endShape(CLOSE);
         })
       }
   }
