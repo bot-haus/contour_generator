@@ -1,9 +1,9 @@
 // Cribbed from Meandering2angles by solub (https://editor.p5js.org/solub/sketches/I3V99NXlX) and Export SVG by dannyrozin (https://editor.p5js.org/dannyrozin/sketches/r1djoVow7) 
 
 //create sliders
-//let contourSlider;
-//let noiseSlider;
-//let offsetSlider;
+let contourSlider;
+let noiseSlider;
+let offsetSlider;
 
 p5.disableFriendlyErrors = true;
 
@@ -22,24 +22,13 @@ function setup() {
   randomSeed();
 
   //setting up slider ranges and presets
-  //contourSlider = createSlider(0, 100, 28, 1);
-  //noiseSlider = createSlider(0, 0.5, 0.014, 0.001);
-  //offsetSlider = createSlider(0, 0.5, 0.01, 0.01);
+  contourSlider = createSlider(0, 100, 28, 1);
+  noiseSlider = createSlider(0, 0.5, 0.014, 0.001);
+  offsetSlider = createSlider(0, 0.5, 0.01, 0.01);
 
   offx = width / W;
   offy = height / H;
   translate(offx * 0.5, offy * 0.5);
-
-  // compute noise value for each vertex
- // const nvalues = Array.from({
-  //  length: N
- // }, (_, i) => noise((i % W) * F, int(i / W) * F));
-
-  // compute + draw contour lines
-  // want to attach these values to the sliders 
- // c = new Contour(nvalues, 28, 0.5, 0.01); // 28 contours, starting noise = .5, offset = .01
- // c.display();
-
 }
 
 
@@ -152,18 +141,20 @@ class Contour {
 }
 
 function draw() {
-  //let contourNum = contourSlider.value();
-  //let startNoise = noiseSlider.value();
-  //let startOffset = offsetSlider.value();
-   // compute + draw contour lines
-  // want to attach these values to the sliders 
+  let contourNum = contourSlider.value();
+  let startNoise = noiseSlider.value();
+  let startOffset = offsetSlider.value();
+  
+ 
+
    // compute noise value for each vertex
   const nvalues = Array.from({
     length: N
   }, (_, i) => noise((i % W) * F, int(i / W) * F));
   
-  //c = new Contour(nvalues, contourNum, startNoise, startOffset); // 28 contours, starting noise = .5, offset = .01
-  c = new Contour(nvalues, 28, 0.5, 0.10); // 28 contours, starting noise = .5, offset = .01
+  // compute + draw contour lines
+  c = new Contour(nvalues, contourNum, startNoise, startOffset); // 28 contours, starting noise = .5, offset = .01
+  //c = new Contour(nvalues, 28, 0.5, 0.10); // 28 contours, starting noise = .5, offset = .01
   c.display();
   
   if (keyCode === LEFT_ARROW) {
