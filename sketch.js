@@ -38,18 +38,22 @@ class Contour {
       const lines = this.contour(n);
       let sw = 0;
 
+      //makes the stroke weight of every fifth row heavier than the others
       if (i % 5 === 0) {
         sw = 1.4
       } else {
         sw = 1
       }
 
+      // this set the color of the line based on the i value (number of the contour line), but I turned it off to just make black lines
       strokeWeight(sw);
       stroke(0)
       //stroke(43+i*16, 69+i*6, 255-i*4);
 
       lines.forEach(function([p1, p2], j) {
           //beginShape();
+
+          // think this is the source of the dashed lines, to make this even you need to remove noise from the creation of the p1 and p2
           if (i % 5 === 3) {
             if (j % 2 === 0) {
               line(p1.x, p1.y, p2.x, p2.y)
