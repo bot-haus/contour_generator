@@ -1,4 +1,4 @@
-// Cribbed from Meandering2angles by solub (https://editor.p5js.org/solub/sketches/I3V99NXlX) and Export SVG by dannyrozin (https://editor.p5js.org/dannyrozin/sketches/r1djoVow7) 
+// Cribbed from Meandering Triangles by solub (https://editor.p5js.org/solub/sketches/I3V99NXlX) and Export SVG by dannyrozin (https://editor.p5js.org/dannyrozin/sketches/r1djoVow7) 
 
 //create sliders
 let contourSlider;
@@ -17,7 +17,7 @@ const path = [1, 0, 3, 1, 2, 3];
 
 
 function setup() {
-  createCanvas(windowWidth, windowHeight, SVG);
+  createCanvas(750, 563, SVG);
   background(255);
   randomSeed();
 
@@ -145,8 +145,6 @@ function draw() {
   let startNoise = noiseSlider.value();
   let startOffset = offsetSlider.value();
   
- 
-
    // compute noise value for each vertex
   const nvalues = Array.from({
     length: N
